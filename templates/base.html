@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Are you older than Congress?</title>
+    </head>
+    <body>
+        <h1>Are you older than Congress?</h1>
+        <form action=".">
+            <label for="birthday">What's your birthday?</label>
+            <input type="text" name="birthday" type="date" value="{{ birthday }}">
+        </form>
+        {% if legislators %}
+        <h2>You are older than <em>{{ legislators|count() }}</em> people in Congress!</h2>
+        <ul>
+        {% for person in legislators %}
+            <li>{{ person.title }} {{ person.first_name }} {{ person.last_name }}, born {{ person.birthday }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+</html>
