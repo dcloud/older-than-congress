@@ -1,8 +1,9 @@
 from sunlight import congress
 from flask import Flask, request, render_template
-
+import os
 
 app = Flask(__name__)
+app.config['DEBUG'] = os.environ.get('DEBUG', 'False') == 'True'
 
 
 @app.route("/")
